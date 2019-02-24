@@ -46,35 +46,25 @@
         <a-assets>
             <video preload="auto" id="vid" response-type="arraybuffer" loop="false" crossorigin webkit-playsinline playsinline controls>
                 <source  src="https://raw.githubusercontent.com/WitchLord/Zero10AR.github.io/master/Models/Zero10Video.mp4">
-                <img src="ANY IMAGE PATH (THUMBNAIL)"> Your browser does not support Or Else Please Click Reset Button.
             </video>
             <a-asset-item id="Logo" src="https://raw.githubusercontent.com/WitchLord/Zero10AR.github.io/master/Models/scene.gltf"></a-asset-item>
         </a-assets>
         <a-marker id="memarker" type="pattern" url="https://raw.githubusercontent.com/WitchLord/Zero10AR.github.io/master/pattern-marker.patt" vidhandler>
-            <a-plane position='0 0.1 0' rotation="0 0 0" material='transparent:true;src:#vid' controls></a-plane>
+            <a-plane position='0 0.1 0' rotation="-90 0 0" scale="3 1.5 2" material='transparent:true;src:#vid' controls></a-plane>
             <a-entity gltf-model="#Logo"
-                position="-0.5 0.5 0.5" 
-                scale="0.03 0.03 0.03" 
+                position="-2 0.0 -0.3"
+                scale="0.01 0.01 0.01" 
+                animation-mixer="clip: Take 001;"
+                crossorigin="anonymous"></a-entity>
+           <a-entity gltf-model="#Logo"
+                position="2 0.0 -0.3"
+                scale="0.01 0.01 0.01" 
                 animation-mixer="clip: Take 001;"
                 crossorigin="anonymous"></a-entity>
         </a-marker>
         <a-entity camera></a-entity>
     </a-scene>
-    <div class="footer">
-        <div class="row">
-            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-left">
-                <div class="onebleft">
-                    <button onclick="vid.playvid()" class="btn btnskips">Play (CHROME)</button>
-                </div>
-            </div>
-            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-right">
-                <div class="onebright">
-                    <button onclick="refrespage()" class="btn btnskips">Refresh</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
+    
 </body>
 
 </html>
