@@ -18,28 +18,39 @@
     <script>
         AFRAME.registerComponent('vidhandler', {
             init: function () {
-                this.toggle = false;
-                this.vid = document.querySelector("#vid");
-                this.vid.pause();
-            },
-            tick: function () {
-                if (this.el.object3D.visible == true) {
-                    if (!this.toggle) {
-                        this.toggle = true;
-                        this.vid.play();
-                    }
-                } else {
-                    this.toggle = false;
-                    this.vid.pause();
-                }
-            }
-        });
+                let playing = false;
+                let vid = document.querySelector("#vid");
+                this.el.addEventListener('click', () => {
+          if(!playing) {
+              vid.play();
+           } else {
+              vid.pause();
+              vid.currentTime = 0;
+           }
+           playing = !playing;
+     });
         function refrespage() {
             location.reload();
         }
         function playvid() {
             vid.play();
         }
+      
+      AFRAME.registerComponent('audiohandler', {
+  init:function() {
+     let playing = false;
+     let audio = document.querySelector("#audio");
+     this.el.addEventListener('click', () => {
+          if(!playing) {
+              audio.play();
+           } else {
+              audio.pause();
+              audio.currentTime = 0;
+           }
+           playing = !playing;
+     });
+  }
+})
     </script>
     <!-- IF YOU WANT TO PLAY ALPHA VIDEO THEN IT SHOULD BE IN WEBM FORMAT ........
     FOR NORMAL VIDEO - MP4 or OGG -->
